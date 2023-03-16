@@ -6,7 +6,7 @@ namespace ExceptionHandlingExercise
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // -----------------------------------------------------------------------------
             // First create an char[], it must contain 6 numbers and 3 letters - name it arr
@@ -17,13 +17,33 @@ namespace ExceptionHandlingExercise
             // and Exceptions will be thrown 
             // Below we will set this up 
             // ------------------------------------------------------------------------------
-
+            var arr = new char[] { '1', '2', '3', '4', '5', '6', 'a', 'b', 'c' };
+            var numbers = new List<int>();
+            var str = "";
 
 
             //TODO START HERE:
-            
+
             // Make a foreach loop to iterate through your character array
-            
+            foreach (var item in arr)
+            {
+                int number;
+                try
+                {
+                    str = item.ToString();
+                    number = int.Parse(str);
+
+                    numbers.Add(number);
+
+                } catch (Exception e)
+                {
+                    Console.WriteLine($"Unable to Parse '{item}'");
+                }
+                finally
+                {
+                    Console.WriteLine(item);
+                }
+            }
                 // Now create a try catch
                 
                 
